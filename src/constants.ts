@@ -122,6 +122,12 @@ const PROJECTS: Project[] = [
     to: 'drag-n-drop',
     progress: 10,
     addedDate: '2024-01-07'
+  },
+  {
+    projectName: 'Drawing App',
+    to: 'drawing-app',
+    progress: 1,
+    addedDate: '2024-02-25'
   }
   // {
   //   projectName: 'Duty Cycle Scaling',

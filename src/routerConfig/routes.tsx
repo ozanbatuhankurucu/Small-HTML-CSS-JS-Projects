@@ -24,6 +24,7 @@ import BackgroundSlider from '../projects/BackgroundSlider'
 import ThemeClock from '../projects/ThemeClock'
 import { ButtonRippleEffect } from '../projects/ButtonRippleEffect/ButtonRippleEffect'
 import DragNDrop from '../projects/DragNDrop/DragNDrop'
+import DrawingApp from '../projects/DrawingApp'
 
 const PROJECTS_PATH = '/projects/'
 
@@ -126,6 +127,10 @@ const routes = [
   {
     path: `${PROJECTS_PATH}drag-n-drop`,
     element: <DragNDrop />
+  },
+  {
+    path: `${PROJECTS_PATH}drawing-app`,
+    element: <DrawingApp />
   }
 ]
 
