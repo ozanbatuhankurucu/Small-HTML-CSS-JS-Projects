@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet'
-import StickyNavbar from './StickyNavbar'
+import { StickyNavbar } from './StickyNavbar'
 
 const Wrapper = () => (
   <>

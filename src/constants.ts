@@ -147,12 +147,11 @@ const PROJECTS: Project[] = [
     progress: 10,
     addedDate: '2024-06-16'
   },
-
   {
     projectName: 'Sticky Navbar',
     to: 'sticky-navbar',
     progress: 1,
-    addedDate: '2024-12-21'
+    addedDate: '2025-03-23'
   }
 ]
 

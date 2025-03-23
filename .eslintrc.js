@@ -80,6 +80,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'no-use-before-define': 'off',
     'jsx-a11y/control-has-associated-label': 'off',
-    'consistent-return': 'off'
+    'consistent-return': 'off',
+    'max-len': ['error', { code: 120 }]
   }
 }

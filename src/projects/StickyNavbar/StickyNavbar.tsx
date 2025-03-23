@@ -1,5 +1,8 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 
-const StickyNavbar = () => <div>StickyNavbar</div>
-
-export default StickyNavbar
+export const StickyNavbar = () => (
+  <>
+    <Navbar />
+  </>
+)
