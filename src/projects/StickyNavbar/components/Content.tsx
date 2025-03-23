@@ -9,6 +9,7 @@ const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 0;
+  scroll-margin-top: 40px;
 
   &:not(:last-child) {
     border-bottom: 1px solid #bdc3c7;

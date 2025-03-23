@@ -150,7 +150,7 @@ const PROJECTS: Project[] = [
   {
     projectName: 'Sticky Navbar',
     to: 'sticky-navbar',
-    progress: 1,
+    progress: 10,
     addedDate: '2025-03-23'
   }
 ]
