@@ -61,7 +61,6 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll)
 
-    // Clean up event listener
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
