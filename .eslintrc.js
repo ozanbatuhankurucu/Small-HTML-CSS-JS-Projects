@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    semi: [2, 'never'],
+    semi: ['error', 'never'],
     // suppress errors for missing 'import React' in files
     'react/react-in-jsx-scope': 'off',
     // allow jsx syntax in js files (for next.js project)
@@ -80,6 +80,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'no-use-before-define': 'off',
     'jsx-a11y/control-has-associated-label': 'off',
-    'consistent-return': 'off'
+    'consistent-return': 'off',
+    'max-len': ['error', { code: 120 }]
   }
 }

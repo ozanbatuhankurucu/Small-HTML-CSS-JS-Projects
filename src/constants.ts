@@ -46,6 +46,12 @@ const PROJECTS: Project[] = [
     addedDate: '2023-01-04'
   },
   {
+    projectName: 'Duty Cycle Scaling',
+    to: 'duty-cycle-sampling',
+    progress: 10,
+    addedDate: '2023-02-15'
+  },
+  {
     projectName: 'Dad Jokes',
     to: 'dad-jokes',
     progress: 10,
@@ -140,13 +146,13 @@ const PROJECTS: Project[] = [
     to: 'content-placeholder',
     progress: 10,
     addedDate: '2024-06-16'
+  },
+  {
+    projectName: 'Sticky Navbar',
+    to: 'sticky-navbar',
+    progress: 10,
+    addedDate: '2025-03-23'
   }
-  // {
-  //   projectName: 'Duty Cycle Scaling',
-  //   to: 'duty-cycle-sampling',
-  //   progress: 10,
-  //   addedDate: '2023-02-15'
-  // }
 ]
 
 const projectsWithId = PROJECTS.map((project) => ({
