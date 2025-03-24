@@ -81,6 +81,6 @@ module.exports = {
     'no-use-before-define': 'off',
     'jsx-a11y/control-has-associated-label': 'off',
     'consistent-return': 'off',
-    'max-len': ['error', { code: 120 }]
+    'max-len': 'off'
   }
 }
