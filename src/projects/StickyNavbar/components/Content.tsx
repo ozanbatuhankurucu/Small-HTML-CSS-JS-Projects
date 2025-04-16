@@ -3,29 +3,42 @@ import styled from 'styled-components'
 
 const ContentContainer = styled.main`
   padding: 4rem 2rem;
+  background-color: ${({ theme }) => theme.colors.background};
 `
 
 const Section = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 0;
-  scroll-margin-top: 40px;
+  scroll-margin-top: 80px;
 
   &:not(:last-child) {
-    border-bottom: 1px solid #bdc3c7;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   }
 `
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
-  color: #3498db;
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
 `
 
 const SectionContent = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #2c3e50;
+  color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.secondaryText : theme.colors.text)};
 
   p {
     margin-bottom: 1rem;

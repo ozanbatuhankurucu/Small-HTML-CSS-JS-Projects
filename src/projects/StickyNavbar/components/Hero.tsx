@@ -3,7 +3,10 @@ import styled from 'styled-components'
 
 const HeroContainer = styled.section`
   height: 100vh;
-  background-image: linear-gradient(to bottom, #ecf0f1, #e74c3c);
+  background-image: ${({ theme }) =>
+    theme.mode === 'dark'
+      ? `linear-gradient(to bottom, ${theme.colors.secondary}, ${theme.colors.darkBackground})`
+      : `linear-gradient(to bottom, ${theme.colors.lightBackground}, ${theme.colors.accentColor})`};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,28 +18,34 @@ const HeroContainer = styled.section`
 const HeroTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #3498db;
+  color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.text : theme.colors.primary)};
 `
 
 const HeroSubtitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  color: #2c3e50;
+  color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.secondaryText : theme.colors.secondary)};
   font-weight: 400;
 `
 
 const HeroButton = styled.button`
   padding: 0.8rem 2rem;
-  background-color: #3498db;
-  color: #ecf0f1;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.lightBackground || '#fff'};
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: ${({ theme }) => theme.transitions.default};
 
   &:hover {
-    background-color: #2980b9;
+    background-color: ${({ theme }) => (theme.mode === 'dark' ? '#c0392b' : theme.colors.secondary)};
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
   }
 `
 
