@@ -1,5 +1,3 @@
-import { Theme } from './types'
-
 export const colors = {
   dark: {
     primary: '#e74c3c',
@@ -20,11 +18,6 @@ export const colors = {
     border: '#bdc3c7'
   }
 }
-
-export const getThemeColor = (theme: Theme, colorKey: string) =>
-  theme === 'dark'
-    ? colors.dark[colorKey as keyof typeof colors.dark]
-    : colors.light[colorKey as keyof typeof colors.light]
 
 export const transitions = {
   default: 'all 0.3s ease-in-out',
