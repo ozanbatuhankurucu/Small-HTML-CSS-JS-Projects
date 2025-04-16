@@ -30,7 +30,7 @@ const HeroSubtitle = styled.h2`
 
 const HeroButton = styled.button`
   padding: 0.8rem 2rem;
-  background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.primary : theme.colors.primary)};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.lightBackground || '#fff'};
   border: none;
   border-radius: 5px;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const ContentContainer = styled.main`
   padding: 4rem 2rem;
-  background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.background : theme.colors.background)};
+  background-color: ${({ theme }) => theme.colors.background};
 `
 
 const Section = styled.section`
@@ -13,13 +13,13 @@ const Section = styled.section`
   scroll-margin-top: 80px;
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${({ theme }) => (theme.mode === 'dark' ? theme.colors.border : theme.colors.border)};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   }
 `
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
-  color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.primary : theme.colors.primary)};
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
@@ -31,7 +31,7 @@ const SectionTitle = styled.h2`
     left: 0;
     width: 50px;
     height: 3px;
-    background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.primary : theme.colors.primary)};
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 `
 
