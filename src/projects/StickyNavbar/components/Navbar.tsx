@@ -60,15 +60,25 @@ const NavLinks = styled.ul<MenuProps>`
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     position: fixed;
-    top: 70px;
-    right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
     flex-direction: column;
-    background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.secondary : theme.colors.primary)};
-    width: 250px;
-    height: calc(100vh - 70px);
-    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    background-color: ${({ theme }) =>
+      theme.mode === 'dark' ? 'rgba(26, 26, 46, 0.95)' : 'rgba(236, 240, 241, 0.95)'};
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh;
+    opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
     transition: ${(props) => props.theme.transitions.default};
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-10px)')};
   }
 `
 
@@ -98,7 +108,10 @@ const NavLinkItem = styled(motion.li)<NavItemProps>`
     padding: 0.5rem 0;
 
     @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-      padding: 1rem 0;
+      padding: 1rem;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
   }
 `
@@ -113,23 +126,46 @@ const LinkUnderline = styled(motion.div)`
   transform-origin: left;
 `
 
-const HamburgerButton = styled.button`
+const HamburgerButton = styled.button<MenuProps>`
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1001;
+  position: relative;
+  width: 40px;
+  height: 40px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   div {
     width: 25px;
     height: 3px;
     background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.text : theme.colors.secondary)};
-    margin: 5px 0;
+    margin: 2px 0;
     transition: ${(props) => props.theme.transitions.default};
+    position: absolute;
+
+    &:nth-child(1) {
+      transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'rotate(0)')};
+      top: ${({ isOpen }) => (isOpen ? '50%' : 'calc(50% - 8px)')};
+    }
+
+    &:nth-child(2) {
+      opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
+      transform: ${({ isOpen }) => (isOpen ? 'translateX(-20px)' : 'translateX(0)')};
+    }
+
+    &:nth-child(3) {
+      transform: ${({ isOpen }) => (isOpen ? 'rotate(-45deg)' : 'rotate(0)')};
+      top: ${({ isOpen }) => (isOpen ? '50%' : 'calc(50% + 8px)')};
+    }
   }
 `
 
@@ -205,7 +241,7 @@ const Navbar: React.FC = () => {
       <Logo isScrolled={isScrolled}>BrandName</Logo>
 
       <NavbarRightSection>
-        <HamburgerButton onClick={toggleMenu}>
+        <HamburgerButton onClick={toggleMenu} isOpen={isMenuOpen}>
           <div />
           <div />
           <div />
