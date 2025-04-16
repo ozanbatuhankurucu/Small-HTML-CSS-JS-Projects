@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useTheme } from '../ThemeContext'
 import { useScrollSpy } from '../hooks/useScrollSpy'
-import { ScrolledProps, ThemedProps, NavbarItemProps, MobileMenuProps } from '../types'
-import { colors, transitions, breakpoints } from '../styles'
 
-const NavContainer = styled.nav<ScrolledProps & ThemedProps>`
+interface StyledProps {
+  isScrolled?: boolean
+}
+
+const NavContainer = styled.nav<StyledProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -17,88 +19,85 @@ const NavContainer = styled.nav<ScrolledProps & ThemedProps>`
   padding: 0 2rem;
   height: 70px;
   background-color: ${({ isScrolled, theme }) => {
-    if (theme === 'dark') {
-      return isScrolled ? colors.dark.secondary : 'transparent'
-    }
-    if (isScrolled) {
-      return colors.light.primary
-    }
-    return 'transparent'
+    if (!isScrolled) return 'transparent'
+    return theme.mode === 'dark' ? theme.colors.secondary : theme.colors.primary
   }};
   color: ${({ isScrolled, theme }) => {
-    if (theme === 'dark') {
-      return colors.dark.text
+    if (theme.mode === 'dark') {
+      return theme.colors.text
     }
-    if (isScrolled) {
-      return colors.light.lightBackground
-    }
-    return colors.light.text
+    return isScrolled ? theme.colors.lightBackground : theme.colors.text
   }};
   box-shadow: ${({ isScrolled }) => (isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.3)' : 'none')};
-  transition: ${transitions.default};
+  transition: ${(props) => props.theme.transitions.default};
   z-index: 1000;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     padding: 0 1rem;
   }
 `
 
-const Logo = styled.h1<ScrolledProps & ThemedProps>`
+const Logo = styled.h1<StyledProps>`
   font-size: 1.8rem;
   font-weight: 700;
   color: ${({ isScrolled, theme }) => {
-    if (theme === 'dark') {
-      return colors.dark.text
+    if (theme.mode === 'dark') {
+      return theme.colors.text
     }
-    if (isScrolled) {
-      return colors.light.lightBackground
-    }
-    return colors.light.primary
+    return isScrolled ? theme.colors.lightBackground : theme.colors.primary
   }};
-  transition: ${transitions.default};
+  transition: ${(props) => props.theme.transitions.default};
 `
 
-const NavLinks = styled.ul<MobileMenuProps>`
+interface MenuProps extends StyledProps {
+  isOpen?: boolean
+}
+
+const NavLinks = styled.ul<MenuProps>`
   display: flex;
   list-style: none;
   gap: 2rem;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     position: fixed;
     top: 70px;
     right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
     flex-direction: column;
-    background-color: ${({ theme }) => (theme === 'dark' ? colors.dark.secondary : colors.light.primary)};
+    background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.secondary : theme.colors.primary)};
     width: 250px;
     height: calc(100vh - 70px);
     padding: 2rem;
-    transition: ${transitions.default};
+    transition: ${(props) => props.theme.transitions.default};
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   }
 `
 
-const NavLinkItem = styled(motion.li)<NavbarItemProps>`
+interface NavItemProps extends StyledProps {
+  isActive?: boolean
+}
+
+const NavLinkItem = styled(motion.li)<NavItemProps>`
   font-size: 1rem;
   cursor: pointer;
   position: relative;
 
   a {
     color: ${({ isScrolled, theme, isActive }) => {
-      if (theme === 'dark') {
-        return isActive ? colors.dark.primary : colors.dark.text
+      if (theme.mode === 'dark') {
+        return isActive ? theme.colors.primary : theme.colors.text
       }
       if (isScrolled) {
-        return isActive ? '#ffcc00' : colors.light.lightBackground
+        return isActive ? '#ffcc00' : theme.colors.lightBackground
       }
-      return isActive ? colors.light.accentColor : colors.light.secondary
+      return isActive ? theme.colors.accentColor : theme.colors.secondary
     }};
     text-decoration: none;
     font-weight: ${({ isActive }) => (isActive ? '700' : '500')};
-    transition: ${transitions.default};
+    transition: ${(props) => props.theme.transitions.default};
     display: block;
     padding: 0.5rem 0;
 
-    @media (max-width: ${breakpoints.mobile}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
       padding: 1rem 0;
     }
   }
@@ -110,33 +109,33 @@ const LinkUnderline = styled(motion.div)`
   left: 0;
   right: 0;
   height: 2px;
-  background-color: ${colors.light.accentColor};
+  background-color: ${(props) => props.theme.colors.accentColor || props.theme.colors.primary};
   transform-origin: left;
 `
 
-const HamburgerButton = styled.button<ThemedProps>`
+const HamburgerButton = styled.button`
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
 
   div {
     width: 25px;
     height: 3px;
-    background-color: ${({ theme }) => (theme === 'dark' ? colors.dark.text : colors.light.secondary)};
+    background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.text : theme.colors.secondary)};
     margin: 5px 0;
-    transition: ${transitions.default};
+    transition: ${(props) => props.theme.transitions.default};
   }
 `
 
-const ThemeToggleButton = styled.button<ThemedProps>`
-  background-color: ${({ theme }) => (theme === 'dark' ? colors.dark.text : colors.light.secondary)};
-  color: ${({ theme }) => (theme === 'dark' ? colors.light.secondary : colors.light.lightBackground)};
+const ThemeToggleButton = styled.button`
+  background-color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.text : theme.colors.secondary)};
+  color: ${({ theme }) => (theme.mode === 'dark' ? theme.colors.secondary : theme.colors.lightBackground)};
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -146,7 +145,7 @@ const ThemeToggleButton = styled.button<ThemedProps>`
   justify-content: center;
   cursor: pointer;
   margin-left: 1rem;
-  transition: ${transitions.default};
+  transition: ${(props) => props.theme.transitions.default};
 
   &:hover {
     transform: scale(1.1);
@@ -206,24 +205,21 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <NavContainer isScrolled={isScrolled} theme={theme}>
-      <Logo isScrolled={isScrolled} theme={theme}>
-        BrandName
-      </Logo>
+    <NavContainer isScrolled={isScrolled}>
+      <Logo isScrolled={isScrolled}>BrandName</Logo>
 
       <NavbarRightSection>
-        <HamburgerButton onClick={toggleMenu} theme={theme}>
+        <HamburgerButton onClick={toggleMenu}>
           <div />
           <div />
           <div />
         </HamburgerButton>
 
-        <NavLinks isOpen={isMenuOpen} theme={theme}>
+        <NavLinks isOpen={isMenuOpen}>
           {sections.map((section) => (
             <NavLinkItem
               key={section}
               isScrolled={isScrolled}
-              theme={theme}
               isActive={activeSection === section}
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
@@ -237,9 +233,7 @@ const Navbar: React.FC = () => {
           ))}
         </NavLinks>
 
-        <ThemeToggleButton onClick={toggleTheme} theme={theme}>
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </ThemeToggleButton>
+        <ThemeToggleButton onClick={toggleTheme}>{theme === 'dark' ? '☀️' : '🌙'}</ThemeToggleButton>
       </NavbarRightSection>
     </NavContainer>
   )

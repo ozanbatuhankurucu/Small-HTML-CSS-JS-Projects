@@ -1,12 +1,12 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Content from './components/Content'
-import { ThemeProvider } from './ThemeContext'
+import { NavThemeProvider } from './ThemeContext'
 
 export const StickyNavbar = () => (
-  <ThemeProvider>
+  <NavThemeProvider>
     <Navbar />
     <Hero />
     <Content />
-  </ThemeProvider>
+  </NavThemeProvider>
 )

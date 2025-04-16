@@ -1,31 +1,53 @@
 import React, { createContext, useState, useContext, useEffect, ReactNode, useMemo } from 'react'
-import { Theme, ThemeContextType } from './types'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { colors, transitions, breakpoints } from './styles'
+
+export type Theme = 'light' | 'dark'
+
+export interface ThemeContextType {
+  theme: Theme
+  toggleTheme: () => void
+}
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
+export const NavThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [themeMode, setThemeMode] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem('theme')
     return (savedTheme as Theme) || 'light'
   })
 
   useEffect(() => {
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    localStorage.setItem('theme', themeMode)
+  }, [themeMode])
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
+    setThemeMode((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
   }
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme])
+  const themeValues = useMemo(
+    () => ({
+      mode: themeMode,
+      colors: themeMode === 'light' ? colors.light : colors.dark,
+      transitions,
+      breakpoints
+    }),
+    [themeMode]
+  )
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  const contextValue = useMemo(() => ({ theme: themeMode, toggleTheme }), [themeMode])
+
+  return (
+    <ThemeContext.Provider value={contextValue}>
+      <StyledThemeProvider theme={themeValues}>{children}</StyledThemeProvider>
+    </ThemeContext.Provider>
+  )
 }
 
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext)
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider')
+    throw new Error('useTheme must be used within a NavThemeProvider')
   }
   return context
 }
