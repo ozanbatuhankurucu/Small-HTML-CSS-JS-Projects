@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { CaretUp, CaretDown } from 'phosphor-react'
 import { SLIDES } from './constants'
+import { useImageColors } from './hooks/useImageColors'
 
 const Container = styled.div`
   position: relative;
@@ -142,6 +143,9 @@ const DownButton = styled(ControlButton)`
 const DoubleVerticalSlider: React.FC = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0)
   const slidesLength = SLIDES.length
+  const imageUrls = useMemo(() => SLIDES.map((slide) => slide.imageUrl), [])
+  // Get dominant colors from images
+  const imageColors = useImageColors(imageUrls)
 
   const handleUpClick = () => {
     setActiveSlideIndex((prevIndex) => {
@@ -166,7 +170,7 @@ const DoubleVerticalSlider: React.FC = () => {
       <SliderContainer>
         <LeftSlide $activeIndex={activeSlideIndex}>
           {SLIDES.map((slide) => (
-            <SlideContent key={slide.id} $bgColor={slide.backgroundColor}>
+            <SlideContent key={slide.id} $bgColor={imageColors[slide.imageUrl] || '#333333'}>
               <SlideTitle>{slide.title}</SlideTitle>
               <SlideDescription>{slide.description}</SlideDescription>
             </SlideContent>
