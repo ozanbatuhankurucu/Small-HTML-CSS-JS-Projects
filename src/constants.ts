@@ -152,6 +152,12 @@ const PROJECTS: Project[] = [
     to: 'sticky-navbar',
     progress: 10,
     addedDate: '2025-03-23'
+  },
+  {
+    projectName: 'Double Vertical Slider',
+    to: 'double-vertical-slider',
+    progress: 10,
+    addedDate: '2025-11-11'
   }
 ]
 
