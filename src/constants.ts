@@ -158,6 +158,168 @@ const PROJECTS: Project[] = [
     to: 'double-vertical-slider',
     progress: 10,
     addedDate: '2025-11-11'
+  },
+  {
+    projectName: 'Expanding Cards',
+    to: 'expanding-cards',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Progress Steps',
+    to: 'progress-steps',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Rotating Navigation',
+    to: 'rotating-navigation',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Toast Notification',
+    to: 'toast-notification',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Github Profiles',
+    to: 'github-profiles',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Double Click Heart',
+    to: 'double-click-heart',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Typing Effect',
+    to: 'typing-effect',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Password Generator',
+    to: 'password-generator',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Good Cheap Fast',
+    to: 'good-cheap-fast',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Notes App',
+    to: 'notes-app',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Animated Countdown',
+    to: 'animated-countdown',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Image Carousel',
+    to: 'image-carousel',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Hoverboard',
+    to: 'hoverboard',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Pokedex',
+    to: 'pokedex',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Mobile Tab Navigation',
+    to: 'mobile-tab-navigation',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Password Strength Background',
+    to: 'password-strength-background',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: '3D Background Boxes',
+    to: '3d-background-boxes',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Verify Account UI',
+    to: 'verify-account-ui',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Live User Filter',
+    to: 'live-user-filter',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Feedback UI Design',
+    to: 'feedback-ui-design',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Custom Range Slider',
+    to: 'custom-range-slider',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Netflix Navigation',
+    to: 'netflix-navigation',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Quiz App',
+    to: 'quiz-app',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Testimonial Box Switcher',
+    to: 'testimonial-box-switcher',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Random Image Feed',
+    to: 'random-image-feed',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Todo List',
+    to: 'todo-list',
+    progress: 10,
+    addedDate: '2026-03-17'
+  },
+  {
+    projectName: 'Insect Catch Game',
+    to: 'insect-catch-game',
+    progress: 10,
+    addedDate: '2026-03-17'
   }
 ]
 
