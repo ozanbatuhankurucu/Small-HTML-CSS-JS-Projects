@@ -29,6 +29,33 @@ import KineticCSSLoader from '../projects/KineticCSSLoader'
 import ContentPlaceholder from '../projects/ContentPlaceholder'
 import StickyNavbar from '../projects/StickyNavbar'
 import DoubleVerticalSlider from '../projects/DoubleVerticalSlider'
+import ExpandingCards from '../projects/ExpandingCards'
+import ProgressSteps from '../projects/ProgressSteps'
+import RotatingNavigation from '../projects/RotatingNavigation'
+import ToastNotification from '../projects/ToastNotification'
+import GithubProfiles from '../projects/GithubProfiles'
+import DoubleClickHeart from '../projects/DoubleClickHeart'
+import TypingEffect from '../projects/TypingEffect'
+import PasswordGenerator from '../projects/PasswordGenerator'
+import GoodCheapFast from '../projects/GoodCheapFast'
+import NotesApp from '../projects/NotesApp'
+import AnimatedCountdown from '../projects/AnimatedCountdown'
+import ImageCarousel from '../projects/ImageCarousel'
+import Hoverboard from '../projects/Hoverboard'
+import Pokedex from '../projects/Pokedex'
+import MobileTabNavigation from '../projects/MobileTabNavigation'
+import PasswordStrengthBackground from '../projects/PasswordStrengthBackground'
+import BackgroundBoxes from '../projects/BackgroundBoxes'
+import VerifyAccountUI from '../projects/VerifyAccountUI'
+import LiveUserFilter from '../projects/LiveUserFilter'
+import FeedbackUIDesign from '../projects/FeedbackUIDesign'
+import CustomRangeSlider from '../projects/CustomRangeSlider'
+import NetflixNavigation from '../projects/NetflixNavigation'
+import QuizApp from '../projects/QuizApp'
+import TestimonialBoxSwitcher from '../projects/TestimonialBoxSwitcher'
+import RandomImageFeed from '../projects/RandomImageFeed'
+import TodoList from '../projects/TodoList'
+import InsectCatchGame from '../projects/InsectCatchGame'
 
 const PROJECTS_PATH = '/projects/'
 
@@ -151,6 +178,114 @@ const routes = [
   {
     path: `${PROJECTS_PATH}double-vertical-slider`,
     element: <DoubleVerticalSlider />
+  },
+  {
+    path: `${PROJECTS_PATH}expanding-cards`,
+    element: <ExpandingCards />
+  },
+  {
+    path: `${PROJECTS_PATH}progress-steps`,
+    element: <ProgressSteps />
+  },
+  {
+    path: `${PROJECTS_PATH}rotating-navigation`,
+    element: <RotatingNavigation />
+  },
+  {
+    path: `${PROJECTS_PATH}toast-notification`,
+    element: <ToastNotification />
+  },
+  {
+    path: `${PROJECTS_PATH}github-profiles`,
+    element: <GithubProfiles />
+  },
+  {
+    path: `${PROJECTS_PATH}double-click-heart`,
+    element: <DoubleClickHeart />
+  },
+  {
+    path: `${PROJECTS_PATH}typing-effect`,
+    element: <TypingEffect />
+  },
+  {
+    path: `${PROJECTS_PATH}password-generator`,
+    element: <PasswordGenerator />
+  },
+  {
+    path: `${PROJECTS_PATH}good-cheap-fast`,
+    element: <GoodCheapFast />
+  },
+  {
+    path: `${PROJECTS_PATH}notes-app`,
+    element: <NotesApp />
+  },
+  {
+    path: `${PROJECTS_PATH}animated-countdown`,
+    element: <AnimatedCountdown />
+  },
+  {
+    path: `${PROJECTS_PATH}image-carousel`,
+    element: <ImageCarousel />
+  },
+  {
+    path: `${PROJECTS_PATH}hoverboard`,
+    element: <Hoverboard />
+  },
+  {
+    path: `${PROJECTS_PATH}pokedex`,
+    element: <Pokedex />
+  },
+  {
+    path: `${PROJECTS_PATH}mobile-tab-navigation`,
+    element: <MobileTabNavigation />
+  },
+  {
+    path: `${PROJECTS_PATH}password-strength-background`,
+    element: <PasswordStrengthBackground />
+  },
+  {
+    path: `${PROJECTS_PATH}3d-background-boxes`,
+    element: <BackgroundBoxes />
+  },
+  {
+    path: `${PROJECTS_PATH}verify-account-ui`,
+    element: <VerifyAccountUI />
+  },
+  {
+    path: `${PROJECTS_PATH}live-user-filter`,
+    element: <LiveUserFilter />
+  },
+  {
+    path: `${PROJECTS_PATH}feedback-ui-design`,
+    element: <FeedbackUIDesign />
+  },
+  {
+    path: `${PROJECTS_PATH}custom-range-slider`,
+    element: <CustomRangeSlider />
+  },
+  {
+    path: `${PROJECTS_PATH}netflix-navigation`,
+    element: <NetflixNavigation />
+  },
+  {
+    path: `${PROJECTS_PATH}quiz-app`,
+    element: <QuizApp />
+  },
+  {
+    path: `${PROJECTS_PATH}testimonial-box-switcher`,
+    element: <TestimonialBoxSwitcher />
+  },
+  {
+    path: `${PROJECTS_PATH}random-image-feed`,
+    element: <RandomImageFeed />
+  },
+  {
+    path: `${PROJECTS_PATH}todo-list`,
+    element: <TodoList />
+  },
+  {
+    path: `${PROJECTS_PATH}insect-catch-game`,
+    element: <InsectCatchGame />
   }
 ]
 
