@@ -4,8 +4,7 @@ import styled from 'styled-components'
 const PANELS = [
   {
     title: 'Explore The World',
-    image:
-      'https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+    image: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   },
   {
     title: 'Wild Forest',
@@ -20,12 +19,11 @@ const PANELS = [
   {
     title: 'City on Winter',
     image:
-      'https://images.unsplash.com/photo-1551009175-8a68da93987c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+      'https://images.unsplash.com/photo-1773587293637-16f878e702dd?w=500&auto=format&fit=crop&q=1350&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8'
   },
   {
     title: 'Mountains - Loss',
-    image:
-      'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+    image: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   }
 ]
 
@@ -70,9 +68,7 @@ const ExpandingCards = () => {
             $active={index === activeIndex}
             style={{ backgroundImage: `url(${panel.image})` }}
             onClick={() => setActiveIndex(index)}>
-            <PanelTitle $active={index === activeIndex}>
-              {panel.title}
-            </PanelTitle>
+            <PanelTitle $active={index === activeIndex}>{panel.title}</PanelTitle>
           </Panel>
         ))}
       </Container>

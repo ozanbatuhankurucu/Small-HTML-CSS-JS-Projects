@@ -163,19 +163,19 @@ const PROJECTS: Project[] = [
     projectName: 'Expanding Cards',
     to: 'expanding-cards',
     progress: 10,
-    addedDate: '2026-03-17'
+    addedDate: '2022-05-14'
   },
   {
     projectName: 'Progress Steps',
     to: 'progress-steps',
     progress: 10,
-    addedDate: '2026-03-17'
+    addedDate: '2022-05-25'
   },
   {
     projectName: 'Rotating Navigation',
     to: 'rotating-navigation',
     progress: 10,
-    addedDate: '2026-03-17'
+      addedDate: '2022-05-26'
   },
   {
     projectName: 'Toast Notification',
